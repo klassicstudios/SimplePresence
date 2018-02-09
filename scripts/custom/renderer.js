@@ -17,7 +17,7 @@ const config = require('../../config.json')
 var request = require('request');
 //this is janky, but we need to get the request once before we loop it every 5m
 request.get({
-    url: 'https://klassbg.herokuapp.com/api/v1/entries/sgv.json',
+    url: config.textConfig.nsurl,
     json: true,
     headers: {'User-Agent': 'request'}
   }, (err, res, data) => {

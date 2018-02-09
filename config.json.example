@@ -1,13 +1,14 @@
 {
   "textConfig": {
-    "details": "working on a bot",
-    "state": "adding more support"
+    "details": "this config for nightscout",
+    "state": "cgm on discord"
+    "nsurl": "<your nightscout current.json endpoint>"
   },
   "imageConfig": {
-    "smallKey": "nodejs",
-    "largeKey": "brackets",
-    "smallText": "node.js",
-    "largeText": "programming",
+    "smallKey": "nightscout",
+    "largeKey": "nightscout_lg",
+    "smallText": "Nightscout",
+    "largeText": "CGM In The Cloud",
     "showButton": true
   },
   "timeConfig": {
@@ -35,5 +36,5 @@
       "username": ""
     }
   },
-  "clientID": "340755371629215744"
+  "clientID": "411355685268488213"
 }
