@@ -40,44 +40,54 @@ function getData() {
           case 'DoubleDown':
             directionDisplay = '⇊';
             imageDisplay = 'doubledown';
+            directionDescription = 'Falling Rapidly: Could Fall >90mg/dl in 30m';
             break;
           case 'SingleDown':
             directionDisplay = '↓';
             imageDisplay = 'singledown';
+            directionDescription = 'Falling Quickly: Could Fall 60-90mg/dl in 30m';
             break;
           case 'FortyFiveDown':
             directionDisplay = '↘';
             imageDisplay = 'ffdown';
+            directionDescription = 'Falling: Could fall 30-60mg/dl in 30m';
             break;
           case 'FortyFiveUp':
             directionDisplay = '↗';
             imageDisplay = 'ffup';
+            directionDescription = 'Rising: Could rise 30-60mg/dl in 30m';
             break;
           case 'SingleUp':
             directionDisplay = '↑';
             imageDisplay = 'singleup';
+            directionDescription = 'Rising Quickly: Could rise 60-90mg/dl in 30m';
             break;
           case 'DoubleUp':
             directionDisplay = '⇈';
             imageDisplay = 'doubleup';
+            directionDescription = 'Rising Rapidly: Could rise >90mg/dl in 30m';
             break;
           case 'NOT COMPUTABLE':
             directionDisplay = '-';
             imageDisplay = 'nocompute';
+            directionDescription = 'Unknown: Cannot compute, please wait for next reading';
             break;
           case 'RATE OUT OF RANGE':
             directionDisplay = '⇕';
             imageDisplay = 'oor';
+            directionDescription = 'Out of Range: The rate has gone out of range for the sensor';
             break;
           default:
             directionDisplay = '→';
             imageDisplay = 'flat';
+            directionDescription = 'Flat: Not increasing or decreasing more than 1mg/dl per minute';
             break;
         }
       var iob = data['bgs'][0]['iob'];
       document.getElementById('details')[text] = `${bg} [${sign}${change}] ${directionDisplay}`;
       document.getElementById('state')[text] = `IOB: ${iob}U`;
       document.getElementById('lkey')[text] = imageDisplay;
+      document.getElementById('ltext')[text] = directionDescription;
     }
   });
 }
