@@ -1,12 +1,7 @@
 ---
-
-[![Discord](https://img.shields.io/discord/268970339948691456.svg?style=flat-square&colorB=7289DA)](https://discord.gg/MpnbrX7)
-[![PayPal](https://img.shields.io/badge/donate-paypal-003087.svg?style=flat-square)](https://dotjs.party/donate)
-[![dis.gg](https://img.shields.io/badge/go_to-site-ff8800.svg?style=flat-square)](https://about.dis.gg)
-
 # SimplePresence
 SimplePresence is an Electron app for macOS, Windows, and Linux that allows users to easily set their Discord Rich Presence Status.
-It has a config for default strings, which can then be changed through the app at any time.
+It has a config for default strings, which can then be changed through the app at any time. I have forked the SimplePresence project for the diabetes community to include CGM support using the Nightscout CGM in the cloud service.
 
 [![Example](example.png)]()
 
@@ -15,6 +10,7 @@ SimplePresence's main/normal usage is for a custom rich presence. It supports im
 
 ## Services
 SimplePresence has support for many service integrations - get your currently playing song, video, or movie in your Rich Presence. We currently support:
+= Nightscout: CGM In The Cloud
 - Apple Music
 - FooBar2000
 - Google Play Music
