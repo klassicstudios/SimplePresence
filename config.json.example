@@ -1,9 +1,9 @@
 {
   "textConfig": {
     "details": "this config for nightscout",
-    "state": "cgm on discord"
-    "nsurl": "<your nightscout current.json endpoint>"
-    "mmol": <true/false>
+    "state": "cgm on discord",
+    "nsurl": "https://your.ns-url.com/pebble",
+    "mmol": false
   },
   "imageConfig": {
     "smallKey": "nightscout",
