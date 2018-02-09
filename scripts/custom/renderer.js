@@ -28,44 +28,64 @@ function getData() {
       } else {
         // data is already parsed as JSON:
         var bg = data['bgs'][0]['sgv'];
+        var double = ">90 mg/dl"
+        var doublemm = ">5 mmol/l"
+        var single = "60-90 mg/dl"
+        var singlemm = "3.3-5mmol/l"
+        var ff = "30-60 mg/dl"
+        var ffmm = "1.6-3.3 mmol/l"
+        var flat = "1 mg/dl"
+        var flatmm = "0.05 mmol"
         var change = data['bgs'][0]['bgdelta'];
-        if(change > 0){
+        if (change > 0){
           var sign = "+"
         }
         else {
           var sign = ""
+        }
+        function round(value, precision) {
+          var multiplier = Math.pow(10, precision || 0);
+          return Math.round(value * multiplier) / multiplier;
+        }
+        if (config.textConfig.mmol === true){
+          bg = round(bg/18.016, 1);
+          change = round(change/18.016, 1);
+          double = doublemm;
+          single = singlemm;
+          ff = ffmm;
+          flat = flatmm;
         }
         var directionDisplay;
         switch (data['bgs'][0]['direction']) {
           case 'DoubleDown':
             directionDisplay = '⇊';
             imageDisplay = 'doubledown';
-            directionDescription = 'Falling Rapidly: Could Fall >90mg/dl in 30m';
+            directionDescription = `Falling Rapidly: Could Fall ${double} in 30m`;
             break;
           case 'SingleDown':
             directionDisplay = '↓';
             imageDisplay = 'singledown';
-            directionDescription = 'Falling Quickly: Could Fall 60-90mg/dl in 30m';
+            directionDescription = `Falling Quickly: Could Fall ${single} in 30m`;
             break;
           case 'FortyFiveDown':
             directionDisplay = '↘';
             imageDisplay = 'ffdown';
-            directionDescription = 'Falling: Could fall 30-60mg/dl in 30m';
+            directionDescription = `Falling: Could fall ${ff} in 30m`;
             break;
           case 'FortyFiveUp':
             directionDisplay = '↗';
             imageDisplay = 'ffup';
-            directionDescription = 'Rising: Could rise 30-60mg/dl in 30m';
+            directionDescription = `Rising: Could rise ${ff} in 30m`;
             break;
           case 'SingleUp':
             directionDisplay = '↑';
             imageDisplay = 'singleup';
-            directionDescription = 'Rising Quickly: Could rise 60-90mg/dl in 30m';
+            directionDescription = `Rising Quickly: Could rise ${single} in 30m`;
             break;
           case 'DoubleUp':
             directionDisplay = '⇈';
             imageDisplay = 'doubleup';
-            directionDescription = 'Rising Rapidly: Could rise >90mg/dl in 30m';
+            directionDescription = `Rising Rapidly: Could rise ${double} in 30m`;
             break;
           case 'NOT COMPUTABLE':
             directionDisplay = '-';
@@ -80,7 +100,7 @@ function getData() {
           default:
             directionDisplay = '→';
             imageDisplay = 'flat';
-            directionDescription = 'Flat: Not increasing or decreasing more than 1mg/dl per minute';
+            directionDescription = `Flat: Not increasing or decreasing more than ${flat} per minute`;
             break;
         }
       var iob = data['bgs'][0]['iob'];

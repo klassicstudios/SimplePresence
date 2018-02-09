@@ -3,6 +3,7 @@
     "details": "this config for nightscout",
     "state": "cgm on discord"
     "nsurl": "<your nightscout current.json endpoint>"
+    "mmol": <true/false>
   },
   "imageConfig": {
     "smallKey": "nightscout",
