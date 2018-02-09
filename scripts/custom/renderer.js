@@ -33,7 +33,7 @@ function getData() {
           var sign = "+"
         }
         else {
-          var sign = "-"
+          var sign = ""
         }
         var directionDisplay;
         switch (data['bgs'][0]['direction']) {
