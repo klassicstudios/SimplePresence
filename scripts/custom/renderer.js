@@ -15,24 +15,7 @@ webFrame.setZoomLevelLimits(1, 1);
 const config = require('../../config.json')
 'use strict';
 var request = require('request');
-//this is janky, but we need to get the request once before we loop it every 5m
-request.get({
-    url: config.textConfig.nsurl,
-    json: true,
-    headers: {'User-Agent': 'request'}
-  }, (err, res, data) => {
-    if (err) {
-      console.log('Error:', err);
-    } else if (res.statusCode !== 200) {
-      console.log('Status:', res.statusCode);
-    } else {
-      // data is already parsed as JSON:
-      document.getElementById('details')[text] = data[0]['sgv'];
-      document.getElementById('state')[text] = data[0]['direction'];
-    }
-});
-//now loop it every 5m
-setInterval(function () {
+function getData() {
   request.get({
       url: config.textConfig.nsurl,
       json: true,
@@ -44,10 +27,54 @@ setInterval(function () {
         console.log('Status:', res.statusCode);
       } else {
         // data is already parsed as JSON:
-        document.getElementById('details')[text] = data[0]['sgv'];
-        document.getElementById('state')[text] = data[0]['direction'];
-      }
+        var bg = data[0]['sgv'];
+        var change = data[0]['sgv']-data[1]['sgv'];
+        if(change > 0){
+          var sign = "+"
+        }
+        else {
+          var sign = "-"
+        }
+        var directionDisplay;
+        switch (data[0]['direction']) {
+          case 'DoubleDown':
+            directionDisplay = '⇊';
+            break;
+          case 'SingleDown':
+            directionDisplay = '↓';
+            break;
+          case 'FortyFiveDown':
+            directionDisplay = '↘';
+            break;
+          case 'FortyFiveUp':
+            directionDisplay = '↗';
+            break;
+          case 'SingleUp':
+            directionDisplay = '↑';
+            break;
+          case 'DoubleUp':
+            directionDisplay = '⇈';
+            break;
+          case 'NOT COMPUTABLE':
+            directionDisplay = '-';
+            break;
+          case 'RATE OUT OF RANGE':
+            directionDisplay = '⇕';
+            break;
+          default:
+            directionDisplay = '→';
+            break;
+        }
+      document.getElementById('details')[text] = `${bg} [${sign}${change}] ${directionDisplay}`;
+      document.getElementById('state')[text] = data[0]['direction'];
+    }
   });
+}
+//this is janky, but we need to get the request once to begin with data before we loop it every 5m
+getData();
+//now loop it every 5m
+setInterval(function () {
+  getData();
 }, 300000)
 
 console.log(config.textConfig.details)
