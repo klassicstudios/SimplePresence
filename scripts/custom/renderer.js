@@ -27,8 +27,8 @@ function getData() {
         console.log('Status:', res.statusCode);
       } else {
         // data is already parsed as JSON:
-        var bg = data[0]['sgv'];
-        var change = data[0]['sgv']-data[1]['sgv'];
+        var bg = data['bgs'][0]['sgv'];
+        var change = data['bgs'][0]['bgdelta'];
         if(change > 0){
           var sign = "+"
         }
@@ -36,7 +36,7 @@ function getData() {
           var sign = "-"
         }
         var directionDisplay;
-        switch (data[0]['direction']) {
+        switch (data['bgs'][0]['direction']) {
           case 'DoubleDown':
             directionDisplay = '⇊';
             imageDisplay = 'doubledown';
@@ -74,8 +74,9 @@ function getData() {
             imageDisplay = 'flat';
             break;
         }
+      var iob = data['bgs'][0]['iob'];
       document.getElementById('details')[text] = `${bg} [${sign}${change}] ${directionDisplay}`;
-      document.getElementById('state')[text] = data[0]['direction'];
+      document.getElementById('state')[text] = `IOB: ${iob}U`;
       document.getElementById('lkey')[text] = imageDisplay;
     }
   });
