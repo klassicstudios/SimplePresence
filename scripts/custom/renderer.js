@@ -34,7 +34,7 @@ request.get({
 //now loop it every 5m
 setInterval(function () {
   request.get({
-      url: 'https://klassbg.herokuapp.com/api/v1/entries/sgv.json',
+      url: config.textConfig.nsurl,
       json: true,
       headers: {'User-Agent': 'request'}
     }, (err, res, data) => {
