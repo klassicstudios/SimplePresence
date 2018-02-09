@@ -13,12 +13,47 @@ if (os.type() !== 'Darwin') {
 webFrame.setZoomLevelLimits(1, 1);
 
 const config = require('../../config.json')
+'use strict';
+var request = require('request');
+//this is janky, but we need to get the request once before we loop it every 5m
+request.get({
+    url: 'https://klassbg.herokuapp.com/api/v1/entries/sgv.json',
+    json: true,
+    headers: {'User-Agent': 'request'}
+  }, (err, res, data) => {
+    if (err) {
+      console.log('Error:', err);
+    } else if (res.statusCode !== 200) {
+      console.log('Status:', res.statusCode);
+    } else {
+      // data is already parsed as JSON:
+      document.getElementById('details')[text] = data[0]['sgv'];
+      document.getElementById('state')[text] = data[0]['direction'];
+    }
+});
+//now loop it every 5m
+setInterval(function () {
+  request.get({
+      url: 'https://klassbg.herokuapp.com/api/v1/entries/sgv.json',
+      json: true,
+      headers: {'User-Agent': 'request'}
+    }, (err, res, data) => {
+      if (err) {
+        console.log('Error:', err);
+      } else if (res.statusCode !== 200) {
+        console.log('Status:', res.statusCode);
+      } else {
+        // data is already parsed as JSON:
+        document.getElementById('details')[text] = data[0]['sgv'];
+        document.getElementById('state')[text] = data[0]['direction'];
+      }
+  });
+}, 300000)
+
 console.log(config.textConfig.details)
 console.log(config.textConfig.state)
 console.log(config.imageConfig.smallText)
 var text = "textContent" in document.body ? "textContent" : "innerText";
-document.getElementById('details')[text] = config.textConfig.details
-document.getElementById('state')[text] = config.textConfig.state
 document.getElementById('stext')[text] = config.imageConfig.smallText
 document.getElementById('ltext')[text] = config.imageConfig.largeText
 document.getElementById('skey')[text] = config.imageConfig.smallKey
