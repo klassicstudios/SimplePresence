@@ -10,14 +10,14 @@ SimplePresence's main/normal usage is for a custom rich presence. It supports im
 
 ## Services
 SimplePresence has support for many service integrations - get your currently playing song, video, or movie in your Rich Presence. We currently support:
-- Nightscout: CGM In The Cloud
+- Nightscout: CGM In The Cloud [npm run custom]
 - Apple Music
-- FooBar2000
+- FooBar2000 [npm run foobar]
 - Google Play Music
 - IMDB
 - lastFM
-- Spotify
-- YouTube
+- Spotify [npm run spotify]
+- YouTube [npm run youtube]
 
 Get information on using these service [here](https://github.com/justdotJS/SimplePresence/wiki/Services) after following the [setup guide](https://github.com/justdotJS/SimplePresence/wiki/setup).
 
