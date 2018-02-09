@@ -39,34 +39,44 @@ function getData() {
         switch (data[0]['direction']) {
           case 'DoubleDown':
             directionDisplay = '⇊';
+            imageDisplay = 'doubledown';
             break;
           case 'SingleDown':
             directionDisplay = '↓';
+            imageDisplay = 'singledown';
             break;
           case 'FortyFiveDown':
             directionDisplay = '↘';
+            imageDisplay = 'ffdown';
             break;
           case 'FortyFiveUp':
             directionDisplay = '↗';
+            imageDisplay = 'ffup';
             break;
           case 'SingleUp':
             directionDisplay = '↑';
+            imageDisplay = 'singleup';
             break;
           case 'DoubleUp':
             directionDisplay = '⇈';
+            imageDisplay = 'doubleup';
             break;
           case 'NOT COMPUTABLE':
             directionDisplay = '-';
+            imageDisplay = 'nocompute';
             break;
           case 'RATE OUT OF RANGE':
             directionDisplay = '⇕';
+            imageDisplay = 'oor';
             break;
           default:
             directionDisplay = '→';
+            imageDisplay = 'flat';
             break;
         }
       document.getElementById('details')[text] = `${bg} [${sign}${change}] ${directionDisplay}`;
       document.getElementById('state')[text] = data[0]['direction'];
+      document.getElementById('lkey')[text] = imageDisplay;
     }
   });
 }
