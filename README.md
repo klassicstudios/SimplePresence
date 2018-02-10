@@ -6,9 +6,11 @@ It has a config for default strings, which can then be changed through the app a
 I have forked the SimplePresence project for the diabetes community to include CGM support displaying data from the Nightscout CGM in the cloud service.
 
 Running any integration will open a status window telling you the variables being changed. For instance, the nightscout integration will pop a window that looks like this:
+
 [![Example](https://i.imgur.com/L3ujYvU.png)]()
 
 In discord, your Rich Presence status will look like this once the values have loaded:
+
 [![Example2](https://i.imgur.com/pAjokj6.png)]()
 
 ## Main
