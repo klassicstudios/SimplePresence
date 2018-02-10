@@ -7,7 +7,7 @@ I have forked the SimplePresence project for the diabetes community to include C
 
 Running any integration will open a status window telling you the variables being changed. For instance, the nightscout integration will pop a window that looks like this:
 
-[![Example](https://i.imgur.com/L3ujYvU.png)]()
+[![Example](https://i.imgur.com/RA2Oj5k.png)]()
 
 In discord, your Rich Presence status will look like this once the values have loaded:
 
