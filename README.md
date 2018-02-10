@@ -1,9 +1,15 @@
 ---
 # SimplePresence
 SimplePresence is an Electron app for macOS, Windows, and Linux that allows users to easily set their Discord Rich Presence Status.
-It has a config for default strings, which can then be changed through the app at any time. I have forked the SimplePresence project for the diabetes community to include CGM support using the Nightscout CGM in the cloud service.
+It has a config for default strings, which can then be changed through the app at any time.
 
+I have forked the SimplePresence project for the diabetes community to include CGM support displaying data from the Nightscout CGM in the cloud service.
+
+Running any integration will open a status window telling you the variables being changed. For instance, the nightscout integration will pop a window that looks like this:
 [![Example](https://i.imgur.com/L3ujYvU.png)]()
+
+In discord, your Rich Presence status will look like this once the values have loaded:
+[![Example2](https://i.imgur.com/pAjokj6.png)]()
 
 ## Main
 SimplePresence's main/normal usage is for a custom rich presence. It supports images, captions, timestamps, and regular text. Start off by [following the setup guide](https://github.com/justdotJS/SimplePresence/wiki/setup).
