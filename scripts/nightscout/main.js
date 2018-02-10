@@ -28,7 +28,6 @@ function createWindow() {
     width: width,
     height: height,
     resizable: false,
-    titleBarStyle: 'hidden',
     vibrancy: 'dark',
     hasShadow: false,
     frame: false,
