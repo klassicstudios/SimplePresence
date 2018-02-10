@@ -23,14 +23,13 @@ let mainWindow;
 
 function createWindow() {
   var width = 500 //320
-  var height = 500 //500
+  var height = 575 //500
   mainWindow = new BrowserWindow({
     width: width,
     height: height,
     resizable: false,
     vibrancy: 'dark',
     hasShadow: false,
-    frame: false,
     show: false
   });
 
