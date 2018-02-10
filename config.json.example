@@ -6,7 +6,7 @@
     "mmol": false
   },
   "imageConfig": {
-    "smallKey": "nightscout",
+    "smallKey": "nightscout_sm",
     "largeKey": "nightscout_lg",
     "smallText": "Nightscout",
     "largeText": "CGM In The Cloud",
