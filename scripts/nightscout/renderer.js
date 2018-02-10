@@ -107,12 +107,12 @@ function getData() {
     }
   });
 }
-//this is janky, but we need to get the request once to begin with data before we loop it every 5m
+//this is janky, but we need to get the request once to begin with data before we loop it every 1m
 getData();
-//now loop it every 5m
+//now loop it every 1m
 setInterval(function () {
   getData();
-}, 300000)
+}, 60000)
 
 console.log(config.textConfig.details)
 console.log(config.textConfig.state)
