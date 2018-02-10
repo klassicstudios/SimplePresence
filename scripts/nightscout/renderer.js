@@ -36,6 +36,7 @@ function getData() {
         var ffmm = "1.6-3.3 mmol/l"
         var flat = "1 mg/dl"
         var flatmm = "0.05 mmol"
+        var unit = 'mg/dl'
         var change = data['bgs'][0]['bgdelta'];
         if (change > 0){
           var sign = "+"
@@ -43,13 +44,8 @@ function getData() {
         else {
           var sign = ""
         }
-        function round(value, precision) {
-          var multiplier = Math.pow(10, precision || 0);
-          return Math.round(value * multiplier) / multiplier;
-        }
         if (config.textConfig.mmol === true){
-          bg = round(bg/18.016, 1);
-          change = round(change/18.016, 1);
+          unit = 'mmol/l';
           double = doublemm;
           single = singlemm;
           ff = ffmm;
@@ -104,7 +100,7 @@ function getData() {
             break;
         }
       var iob = data['bgs'][0]['iob'];
-      document.getElementById('details')[text] = `${bg} [${sign}${change}] ${directionDisplay}`;
+      document.getElementById('details')[text] = `${bg} ${unit} [${sign}${change}] ${directionDisplay}`;
       document.getElementById('state')[text] = `IOB: ${iob}U`;
       document.getElementById('lkey')[text] = imageDisplay;
       document.getElementById('ltext')[text] = directionDescription;
