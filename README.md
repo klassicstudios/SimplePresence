@@ -13,6 +13,8 @@ In discord, your Rich Presence status will look like this once the values have l
 
 [![Example2](https://i.imgur.com/pAjokj6.png)]()
 
+The trend arrow in the large image location will change based on the trend direction from Nightscout. You can also hover over the image to get a description of the speed of change (these values are pulled from the Deexcom "What do the arrows mean?" documentation provided with the Dexcom welcome package).
+
 ## Main
 SimplePresence's main/normal usage is for a custom rich presence. It supports images, captions, timestamps, and regular text. Start off by [following the setup guide](https://github.com/justdotJS/SimplePresence/wiki/setup).
 
