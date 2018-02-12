@@ -100,8 +100,9 @@ function getData() {
             break;
         }
       var iob = data['bgs'][0]['iob'];
+      var cob = data['bgs'][0]['cob'];
       document.getElementById('details')[text] = `${bg} ${unit} [${sign}${change}] ${directionDisplay}`;
-      document.getElementById('state')[text] = `IOB: ${iob}U`;
+      document.getElementById('state')[text] = `I/COB: ${iob}U/${cob}g`;
       document.getElementById('lkey')[text] = imageDisplay;
       document.getElementById('ltext')[text] = directionDescription;
     }
